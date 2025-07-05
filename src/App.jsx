@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BusinessForm from './components/BusinessForm';
+import './App.css';
 
 function App() {
   const [businessData, setBusinessData] = useState(null);
@@ -28,7 +29,7 @@ function App() {
   const regenerateHeadline = async () => {
     try {
       const res = await fetch(
-        `https://growthai-backend-q678.onrender.com/regenerate-headlines?name=${formInfo.name}&location=${formInfo.location}`
+        `https://growthai-backend-q678.onrender.com/regenerate-headline?name=${formInfo.name}&location=${formInfo.location}`
       );
       const data = await res.json();
       setBusinessData(prev => ({ ...prev, headline: data.headline }));
