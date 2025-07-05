@@ -9,7 +9,7 @@ function App() {
   const handleSubmit = async ({ name, location }) => {
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/business-data', {
+      const res = await fetch('https://growthai-backend-q678.onrender.com/business-data', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, location })
@@ -28,7 +28,7 @@ function App() {
   const regenerateHeadline = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/regenerate-headlines?name=${formInfo.name}&location=${formInfo.location}`
+        `https://growthai-backend-q678.onrender.com/regenerate-headlines?name=${formInfo.name}&location=${formInfo.location}`
       );
       const data = await res.json();
       setBusinessData(prev => ({ ...prev, headline: data.headline }));
